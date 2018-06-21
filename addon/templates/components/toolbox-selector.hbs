@@ -1,0 +1,8 @@
+{{#each possibleUnits as |unit index|}}
+  {{#if (not-eq index 0)}}
+    <div class="selector__itemSeperator"></div>
+  {{/if}}
+
+  {{toolbox-selector-unit unit=unit selected=(contains unit selectedUnits) selectUnit=(action "selectUnit") deselectUnit=(action "deselectUnit")}}
+
+{{/each}}

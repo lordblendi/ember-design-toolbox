@@ -1,3 +1,24 @@
 <h2 id="title">Welcome to Ember</h2>
 
 {{outlet}}
+
+<h1>Selector configuration examples without popup</h1>
+
+{{#each examples as |example index|}}
+
+  <div>
+    <label>{{example.title}}</label>
+    <div>
+      {{toolbox-selector possibleUnits=example.possible selectedUnits=example.selected
+      expanded=example.expanded
+      singleSelect=example.singleSelect
+      required=example.required
+      readOnly=example.readOnly
+      updateSelection=(action "updateSelection" example)}}
+    </div>
+  </div>
+  <br/>
+
+{{/each}}
+
+
