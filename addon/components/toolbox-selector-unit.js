@@ -7,6 +7,11 @@ export default Component.extend({
   classNames: ["selector__item"],
   classNameBindings: ["selected:selector__item--selected"],
 
+  escapedStyle: Ember.computed("unit.prefix.color", function(){
+    if(/^#[a-zA-Z0-9]{6}$/.test(this.get("unit.prefix.color")))
+    return Ember.String.htmlSafe("background-color: " + this.get("unit.prefix.color"));
+  }),
+
   actions: {
     toggleSelectUnit(unit) {
       if(this.get("selected")){
