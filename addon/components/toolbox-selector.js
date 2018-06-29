@@ -4,7 +4,7 @@ import layout from '../templates/components/toolbox-selector';
 export default Component.extend({
   layout,
   classNames: ["selector"],
-  classNameBindings: ["expanded:selector--expanded", "readOnly:selector--readonly", "singleSelect:selector--singleselect:selector--multiselect", "popupId"],
+  classNameBindings: ["expanded:selector--expanded", "readOnly:selector--readonly", "singleSelect:selector--singleselect:selector--multiselect", "loading:animate-loading", "popupId"],
   expanded: true,
   //singleSelect: true,
 
