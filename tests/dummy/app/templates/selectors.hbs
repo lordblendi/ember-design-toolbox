@@ -1,0 +1,19 @@
+<h1>Selector configuration examples without popup</h1>
+
+{{#each examples as |example index|}}
+
+  <div>
+    <label>{{example.label}}</label>
+    <div>
+      {{toolbox-selector possibleUnits=example.possible selectedUnits=example.selected
+      expanded=example.expanded
+      singleSelect=example.singleSelect
+      required=example.required
+      readOnly=example.readOnly
+      loading=loading
+      updateSelection=(action "updateSelection" example)}}
+    </div>
+  </div>
+  <br/>
+
+{{/each}}

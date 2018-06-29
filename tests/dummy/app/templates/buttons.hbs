@@ -1,0 +1,124 @@
+{{options-toolbar options=options pickTheme=(action "pickTheme") pickLoading=(action "pickLoading")}}
+
+<div class="flex flex-col sm:flex-row m-8 py-4 min-h-screen border-b-2 border-dashed border-grey-dark overflow-hidden" style={{style}}>
+  <div class="sm:w-1/2 p-8 overflow-hidden">
+    <h2 class="mb-8">Button configurations</h2>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Button</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Button - small capital (possible with any color)</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" capitalized=true loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Button - go</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" type="go" loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Button - naked</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" type="naked" loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Button - drop</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" type="drop" loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Buttons - aligned text in the middle</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" type="go" loading=loadingButtons}}
+          {{toolbox-button-aligned-text title="or"}}
+          {{toolbox-button clicked=(action "optOut") title="forget me tomorrow" loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Buttons - aligned text in the middle 2</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-button clicked=(action "optIn") title="Keep me in for 2 weeks" type="go" loading=loadingButtons}}
+          {{toolbox-button-aligned-text title="or"}}
+          {{toolbox-button clicked=(action "optOut") title="forget me tomorrow" type="naked" loading=loadingButtons}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="sm:w-1/2 p-8 overflow-hidden">
+    <h2 class="mb-8">Push configurations - looks like a button, but it's a link</h2>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Push</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-push target="_blank" href="" title="Present" loading=loadingPush}}
+        </div>
+      </div>
+    </div>
+    <div class="field field--not-empty">
+      <div class="field__label">Push - small capital (possible with any color)</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-push target="_blank" href="" title="Present" capitalized=true loading=loadingPush}}
+        </div>
+      </div>
+    </div>
+    <div class="field field--not-empty">
+      <div class="field__label">Push - go</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-push target="_blank" href="" title="Present" type="go" loading=loadingPush}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Push - naked</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-push target="_blank" href="" title="Present" type="naked" loading=loadingPush}}
+        </div>
+      </div>
+    </div>
+
+    <div class="field field--not-empty">
+      <div class="field__label">Push - drop</div>
+      <div class="field__data">
+        <div class="field__value">
+          {{toolbox-push target="_blank" href="" title="Present" type="drop" loading=loadingPush}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
