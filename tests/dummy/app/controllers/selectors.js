@@ -69,9 +69,13 @@ export default Controller.extend({
   loadingSelectors: false,
 
   loading: false,
+  checked: false,
   actions: {
     updateSelection(example, selection) {
       example.set("selected", selection);
+    },
+    toggleChecked(example, newVal) {
+      example.set("checked", newVal);
     },
     pickTheme(option, selection) {
       if(selection[0].field === "Light") {

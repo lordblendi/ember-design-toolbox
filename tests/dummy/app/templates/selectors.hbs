@@ -12,13 +12,26 @@
             <div class="field__label">{{example.label}}</div>
             <div class="field__data">
               <div class="field__value">
-                {{toolbox-selector possibleUnits=example.possible selectedUnits=example.selected
-                expanded=example.expanded
-                singleSelect=example.singleSelect
-                required=example.required
-                readOnly=example.readOnly
-                loading=loadingSelectors
-                updateSelection=(action "updateSelection" example)}}
+                {{#if (eq example.type "selector")}}
+                  {{toolbox-selector possibleUnits=example.possible selectedUnits=example.selected
+                  expanded=example.expanded
+                  singleSelect=example.singleSelect
+                  required=example.required
+                  readOnly=example.readOnly
+                  loading=loadingSelectors
+                  updateSelection=(action "updateSelection" example)}}
+                {{/if}}
+
+                {{#if (eq example.type "checkbox")}}
+                  {{toolbox-checkbox checked=example.checked
+                  truePrefixColor=example.truePrefixColor
+                  falsePrefixColor=example.falsePrefixColor
+                  expanded=example.expanded
+                  required=example.required
+                  readOnly=example.readOnly
+                  loading=loadingSelectors
+                  toggleChecked=(action "toggleChecked" example)}}
+                {{/if}}
               </div>
             </div>
           </div>

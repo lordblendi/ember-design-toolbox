@@ -35,6 +35,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "SINGLE SELECT: EXPANDED",
                 expanded: true,
                 singleSelect: true,
@@ -52,6 +53,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "SINGLE SELECT: EXPANDED AND REQUIRED (YOU CANNOT UNSELECT ALL OF THEM)",
                 expanded: true,
                 singleSelect: true,
@@ -69,6 +71,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "SINGLE SELECT: EXPANDED AND READONLY",
                 expanded: true,
                 singleSelect: true,
@@ -88,6 +91,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "SINGLE SELECT: NOT EXPANDED (SHOWS ONLY ONE ITEM) - NO POPUP ATTACHED ==> WIP",
                 expanded: false,
                 singleSelect: true,
@@ -105,6 +109,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "SINGLE SELECT: NOT EXPANDED (SHOWS ONLY ONE ITEM) AND READONLY",
                 expanded: false,
                 singleSelect: true,
@@ -133,6 +138,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "MULTI SELECT: EXPANDED",
                 expanded: true,
                 singleSelect: false,
@@ -150,6 +156,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "MULTI SELECT: EXPANDED AND REQUIRED (AT LEAST ONE HAS TO BE SELECTED)",
                 expanded: true,
                 singleSelect: false,
@@ -167,6 +174,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "MULTI SELECT: EXPANDED AND READONLY",
                 expanded: true,
                 singleSelect: false,
@@ -184,6 +192,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "MULTI SELECT: NOT EXPANDED",
                 expanded: false,
                 singleSelect: false,
@@ -201,6 +210,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "MULTI SELECT: NOT EXPANDED AND READONLY ==> WIP",
                 expanded: false,
                 singleSelect: false,
@@ -233,6 +243,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "PANEL SELECTOR",
                 expanded: true,
                 singleSelect: true,
@@ -250,6 +261,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "DANGER LEVEL",
                 expanded: true,
                 singleSelect: true,
@@ -267,6 +279,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "STATUS",
                 expanded: true,
                 singleSelect: true,
@@ -285,6 +298,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "STATUS",
                 expanded: true,
                 singleSelect: true,
@@ -303,6 +317,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "TAGS",
                 expanded: true,
                 singleSelect: true,
@@ -321,6 +336,7 @@ export default Route.extend({
           examples.pushObject(
             new Ember.Object(
               {
+                type: "selector",
                 label: "PRODUCT CONTACT",
                 expanded: true,
                 singleSelect: true,
@@ -352,9 +368,39 @@ export default Route.extend({
       {
         const examples = Ember.A();
 
+        {
+          examples.pushObject(
+            new Ember.Object(
+              {
+                type: "checkbox",
+                label: "CHECKBOX",
+                expanded: true,
+                required: false,
+                readOnly: false,
+                checked: null
+              }
+            )
+          );
+        }
+        {
+          examples.pushObject(
+            new Ember.Object(
+              {
+                type: "checkbox",
+                label: "CHECKBOX - COLORED ",
+                expanded: true,
+                required: false,
+                readOnly: false,
+                checked: null,
+                truePrefixColor: colors["green"]
+              }
+            )
+          );
+        }
+
         subSections.pushObject(new Ember.Object({
-          label: "Checkboxes"
-          //examples
+          label: "Checkboxes",
+          examples
         }));
       }
 
