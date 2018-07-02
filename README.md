@@ -53,3 +53,4 @@ This project is licensed under the [MIT License](LICENSE.md).
 ### TODOS:
 * Document difference between toolbox-push and toolbox-push-linkto
 * Write examples and/or a tool to configure your component
+* Add ember-mocha and prettier
