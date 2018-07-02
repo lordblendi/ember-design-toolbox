@@ -76,11 +76,9 @@ export default Controller.extend({
     pickTheme(option, selection) {
       if(selection[0].field === "Light") {
         this.set("backgroundColor", "#FFFFFF");
-        console.log("GO LIGHT");
       }
       else {
         this.set("backgroundColor", "#000000");
-        console.log("GO DARK");
       }
       option.set("selected", selection);
     },

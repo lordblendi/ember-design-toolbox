@@ -1,19 +1,31 @@
-<h1>Selector configuration examples without popup</h1>
+{{options-toolbar options=options pickTheme=(action "pickTheme") pickLoading=(action "pickLoading")}}
 
-{{#each examples as |example index|}}
+{{#each sections as |section|}}
+  <div class="flex flex-col sm:flex-row m-8 pb-4 border-b-2 border-dashed border-grey-dark overflow-hidden" style={{style}}>
+    {{#each section.subSection as |subSection|}}
+      <div class="sm:w-1/{{section.subSection.length}} p-2 overflow-hidden">
+        <h2 class="mb-8">{{subSection.label}}</h2>
 
-  <div>
-    <label>{{example.label}}</label>
-    <div>
-      {{toolbox-selector possibleUnits=example.possible selectedUnits=example.selected
-      expanded=example.expanded
-      singleSelect=example.singleSelect
-      required=example.required
-      readOnly=example.readOnly
-      loading=loading
-      updateSelection=(action "updateSelection" example)}}
-    </div>
+        {{#each subSection.examples as |example index|}}
+
+          <div class="field field--not-empty">
+            <div class="field__label">{{example.label}}</div>
+            <div class="field__data">
+              <div class="field__value">
+                {{toolbox-selector possibleUnits=example.possible selectedUnits=example.selected
+                expanded=example.expanded
+                singleSelect=example.singleSelect
+                required=example.required
+                readOnly=example.readOnly
+                loading=loadingSelectors
+                updateSelection=(action "updateSelection" example)}}
+              </div>
+            </div>
+          </div>
+        {{else}}
+          Not implemented yet.
+        {{/each}}
+      </div>
+    {{/each}}
   </div>
-  <br/>
-
 {{/each}}
