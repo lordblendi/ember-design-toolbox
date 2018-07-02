@@ -6,7 +6,6 @@ export default Component.extend({
   classNames: ["selector"],
   classNameBindings: ["expanded:selector--expanded", "readOnly:selector--readonly", "singleSelect:selector--singleselect:selector--multiselect", "loading:animate-loading", "popupId"],
   expanded: true,
-  //singleSelect: true,
 
   possibleUnits: Ember.A(),
   selectedUnits: Ember.A(),
