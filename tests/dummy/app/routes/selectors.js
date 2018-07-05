@@ -92,7 +92,7 @@ export default Route.extend({
             new Ember.Object(
               {
                 type: "selector",
-                label: "SINGLE SELECT: NOT EXPANDED (SHOWS ONLY ONE ITEM) - NO POPUP ATTACHED ==> WIP",
+                label: "SINGLE SELECT: NOT EXPANDED (SHOWS ONLY ONE ITEM) - NO POPUP ATTACHED",
                 expanded: false,
                 singleSelect: true,
                 required: false,
