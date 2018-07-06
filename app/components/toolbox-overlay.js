@@ -1,1 +1,1 @@
-export { default } from 'ember-design-toolbox/components/toolbox-overlay';
+export { default } from "ember-design-toolbox/components/toolbox-overlay";

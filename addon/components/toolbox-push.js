@@ -1,8 +1,8 @@
-import Component from '@ember/component';
-import layout from '../templates/components/toolbox-push';
-import ButtonBaseMixin from '../mixins/button-base';
+import Component from "@ember/component";
+import layout from "../templates/components/toolbox-push";
+import ButtonBaseMixin from "../mixins/button-base";
 
-const toolboxPushComponent = Component.extend( ButtonBaseMixin, {
+const toolboxPushComponent = Component.extend(ButtonBaseMixin, {
   layout,
   tagName: "a",
   attributeBindings: ["href", "target"],
@@ -15,19 +15,18 @@ const toolboxPushComponent = Component.extend( ButtonBaseMixin, {
     if (params) {
       // Do not mutate params in place
       params = params.slice();
-    }
-    else {
+    } else {
       return;
     }
 
-    if(!this.get("href")) {
+    if (!this.get("href")) {
       this.set("href", params.shift());
     }
   }
 });
 
 toolboxPushComponent.reopenClass({
-  positionalParams: 'params'
+  positionalParams: "params"
 });
 
 export default toolboxPushComponent;

@@ -1,1 +1,1 @@
-export { default } from 'ember-design-toolbox/components/toolbox-push';
+export { default } from "ember-design-toolbox/components/toolbox-push";

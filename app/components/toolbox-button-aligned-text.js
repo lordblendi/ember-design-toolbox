@@ -1,1 +1,3 @@
-export { default } from 'ember-design-toolbox/components/toolbox-button-aligned-text';
+export {
+  default
+} from "ember-design-toolbox/components/toolbox-button-aligned-text";

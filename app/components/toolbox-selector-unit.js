@@ -1,1 +1,1 @@
-export { default } from 'ember-design-toolbox/components/toolbox-selector-unit';
+export { default } from "ember-design-toolbox/components/toolbox-selector-unit";

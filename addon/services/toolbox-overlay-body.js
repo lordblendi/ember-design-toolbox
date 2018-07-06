@@ -1,4 +1,4 @@
-import Service from '@ember/service';
+import Service from "@ember/service";
 
 export default Service.extend({
   init() {
@@ -6,7 +6,7 @@ export default Service.extend({
     this.set("types", {
       error: "error",
       tooltip: "tooltip"
-    })
+    });
   },
   isVisible: false,
   hide: function() {

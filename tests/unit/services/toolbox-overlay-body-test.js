@@ -1,15 +1,15 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupTest } from 'ember-mocha';
+import { expect } from "chai";
+import { describe, it } from "mocha";
+import { setupTest } from "ember-mocha";
 
-describe('Unit | Service | toolbox-overlay-body', function() {
-  setupTest('service:toolbox-overlay-body', {
+describe("Unit | Service | toolbox-overlay-body", function() {
+  setupTest("service:toolbox-overlay-body", {
     // Specify the other units that are required for this test.
     // needs: ['service:foo']
   });
 
   // Replace this with your real tests.
-  it('exists', function() {
+  it("exists", function() {
     let service = this.subject();
     expect(service).to.be.ok;
   });

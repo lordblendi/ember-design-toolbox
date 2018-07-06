@@ -1,9 +1,9 @@
-import Controller from '@ember/controller';
-import EmberObject from '@ember/object';
-import { computed } from '@ember/object';
-import { A } from '@ember/array';
-import { htmlSafe } from '@ember/template';
-import { alias } from '@ember/object/computed';
+import Controller from "@ember/controller";
+import EmberObject from "@ember/object";
+import { computed } from "@ember/object";
+import { A } from "@ember/array";
+import { htmlSafe } from "@ember/template";
+import { alias } from "@ember/object/computed";
 
 function generateUnit(color, prefix, label, field) {
   return new EmberObject({
@@ -19,25 +19,26 @@ function generateUnit(color, prefix, label, field) {
 export default Controller.extend({
   sections: alias("model"),
 
-  options: computed(function(){
+  options: computed(function() {
     const options = A();
 
     {
-      const possible = A([generateUnit(null, null, null, "Light"), generateUnit(null, null, null, "Dark")]);
+      const possible = A([
+        generateUnit(null, null, null, "Light"),
+        generateUnit(null, null, null, "Dark")
+      ]);
       const selected = A([possible.objectAt(0)]);
       options.pushObject(
-        new EmberObject(
-          {
-            label: "Theme",
-            expanded: true,
-            singleSelect: true,
-            required: true,
-            readOnly: false,
-            action: "pickTheme",
-            possible,
-            selected
-          }
-        )
+        new EmberObject({
+          label: "Theme",
+          expanded: true,
+          singleSelect: true,
+          required: true,
+          readOnly: false,
+          action: "pickTheme",
+          possible,
+          selected
+        })
       );
     }
 
@@ -45,24 +46,22 @@ export default Controller.extend({
       const possible = A([generateUnit(null, null, null, "Selectors")]);
       const selected = A();
       options.pushObject(
-        new EmberObject(
-          {
-            label: "Loading",
-            expanded: true,
-            singleSelect: false,
-            required: false,
-            readOnly: false,
-            action: "pickLoading",
-            possible,
-            selected
-          }
-        )
+        new EmberObject({
+          label: "Loading",
+          expanded: true,
+          singleSelect: false,
+          required: false,
+          readOnly: false,
+          action: "pickLoading",
+          possible,
+          selected
+        })
       );
     }
     return options;
   }),
 
-  style: computed("backgroundColor", function(){
+  style: computed("backgroundColor", function() {
     return htmlSafe(`background-color: ${this.get("backgroundColor")}`);
   }),
   loadingSelectors: false,
@@ -77,20 +76,20 @@ export default Controller.extend({
       example.set("checked", newVal);
     },
     pickTheme(option, selection) {
-      if(selection[0].field === "Light") {
+      if (selection[0].field === "Light") {
         this.set("backgroundColor", "#FFFFFF");
-      }
-      else {
+      } else {
         this.set("backgroundColor", "#000000");
       }
       option.set("selected", selection);
     },
     pickLoading(option, selection) {
-      const selected = selection.map(function(item){return item.field;});
-      if(selected.includes("Selectors")){
+      const selected = selection.map(function(item) {
+        return item.field;
+      });
+      if (selected.includes("Selectors")) {
         this.set("loadingSelectors", true);
-      }
-      else {
+      } else {
         this.set("loadingSelectors", false);
       }
       option.set("selected", selection);
