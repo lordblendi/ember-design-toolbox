@@ -1,13 +1,11 @@
 import Controller from '@ember/controller';
-const colors = {
-  "green": "#0BDA51",
-  "yellow": "#F4CA16",
-  "red": "#e61616",
-  "blue": "#00BFFF"
-};
+import EmberObject from '@ember/object';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
+import { htmlSafe } from '@ember/template';
 
 function generateUnit(color, prefix, label, field) {
-  return new Ember.Object({
+  return new EmberObject({
     prefix: {
       color,
       content: prefix
@@ -18,14 +16,14 @@ function generateUnit(color, prefix, label, field) {
 }
 
 export default Controller.extend({
-  options: Ember.computed(function(){
-    const options = Ember.A();
+  options: computed(function(){
+    const options = A();
 
     {
-      const possible = Ember.A([generateUnit(null, null, null, "Light"), generateUnit(null, null, null, "Dark")]);
-      const selected = Ember.A([possible.objectAt(0)]);
+      const possible = A([generateUnit(null, null, null, "Light"), generateUnit(null, null, null, "Dark")]);
+      const selected = A([possible.objectAt(0)]);
       options.pushObject(
-        new Ember.Object(
+        new EmberObject(
           {
             label: "Theme",
             expanded: true,
@@ -41,10 +39,10 @@ export default Controller.extend({
     }
 
     {
-      const possible = Ember.A([generateUnit(null, null, null, "Buttons"), generateUnit(null, null, null, "Push")]);
-      const selected = Ember.A();
+      const possible = A([generateUnit(null, null, null, "Buttons"), generateUnit(null, null, null, "Push")]);
+      const selected = A();
       options.pushObject(
-        new Ember.Object(
+        new EmberObject(
           {
             label: "Loading",
             expanded: true,
@@ -61,8 +59,8 @@ export default Controller.extend({
     return options;
   }),
 
-  style: Ember.computed("backgroundColor", function(){
-    return Ember.String.htmlSafe(`background-color: ${this.get("backgroundColor")}`);
+  style: computed("backgroundColor", function(){
+    return htmlSafe(`background-color: ${this.get("backgroundColor")}`);
   }),
   loadingButtons: false,
   loadingPush: false,

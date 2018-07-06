@@ -1,4 +1,6 @@
 import ToolboxSelectorComponent from './toolbox-selector';
+import EmberObject, { computed } from '@ember/object';
+import { A } from '@ember/array';
 
 export default ToolboxSelectorComponent.extend({
   singleSelect: true,
@@ -7,8 +9,8 @@ export default ToolboxSelectorComponent.extend({
   truePrefixContent: "",
   trueLabel: null,
   trueField: null,
-  trueUnit: Ember.computed("truePrefixColor", "truePrefixContent", "trueLabel", "trueField", function() {
-    return new Ember.Object({
+  trueUnit: computed("truePrefixColor", "truePrefixContent", "trueLabel", "trueField", function() {
+    return new EmberObject({
       prefix: {
         color: this.get("truePrefixColor"),
         content: this.get("truePrefixContent")
@@ -21,8 +23,8 @@ export default ToolboxSelectorComponent.extend({
   falsePrefixContent: "",
   falseLabel: null,
   falseField: null,
-  falseUnit: Ember.computed("falsePrefixColor", "falsePrefixContent", "falseLabel", "falseField", function() {
-    return new Ember.Object({
+  falseUnit: computed("falsePrefixColor", "falsePrefixContent", "falseLabel", "falseField", function() {
+    return new EmberObject({
       prefix: {
         color: this.get("falsePrefixColor"),
         content: this.get("falsePrefixContent")
@@ -32,15 +34,15 @@ export default ToolboxSelectorComponent.extend({
     })
   }),
 
-  possibleUnits: Ember.computed("trueUnit", "falseUnit", function() {
-    const possible = Ember.A();
+  possibleUnits: computed("trueUnit", "falseUnit", function() {
+    const possible = A();
     possible.pushObject(this.get("trueUnit"));
     possible.pushObject(this.get("falseUnit"));
     return possible;
   }),
 
-  selectedUnits: Ember.computed("trueUnit", "falseUnit", "checked", function() {
-    const selected = Ember.A();
+  selectedUnits: computed("trueUnit", "falseUnit", "checked", function() {
+    const selected = A();
     if(this.get("checked") === true) {
       selected.push(this.get("trueUnit"));
     }

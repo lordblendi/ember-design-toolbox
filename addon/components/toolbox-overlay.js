@@ -1,5 +1,8 @@
 import Component from '@ember/component';
 import layout from '../templates/components/toolbox-overlay';
+import { inject } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   layout,
@@ -7,13 +10,13 @@ export default Component.extend({
   classNames: "overlay-body",
   classNameBindings: ["isVisible:overlay-body--visible", "error:overlay-body--error", "tooltip:overlay-body--tooltip"],
 
-  toolboxOverlayBody: Ember.inject.service(),
-  type: Ember.computed.alias("toolboxOverlayBody.overlayType"),
+  toolboxOverlayBody: inject(),
+  type: alias("toolboxOverlayBody.overlayType"),
 
-  error: Ember.computed("type", "toolboxOverlayBody.types.error", function(){
+  error: computed("type", "toolboxOverlayBody.types.error", function(){
     return this.get("type") === this.get("toolboxOverlayBody.types.error");
   }),
-  tooltip: Ember.computed("type", "toolboxOverlayBody.types.tooltip", function(){
+  tooltip: computed("type", "toolboxOverlayBody.types.tooltip", function(){
     return this.get("type") === this.get("toolboxOverlayBody.types.tooltip");
   }),
 

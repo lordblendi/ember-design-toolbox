@@ -1,26 +1,24 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | toolbox-button-aligned-text', function(hooks) {
-  setupRenderingTest(hooks);
+describe('Integration | Component | toolbox-button-aligned-text', function() {
+  setupComponentTest('toolbox-button-aligned-text', {
+    integration: true
+  });
 
-  test('it renders', async function(assert) {
+  it('renders', function() {
     // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{toolbox-button-aligned-text}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
+    // Handle any actions with this.on('myAction', function(val) { ... });
     // Template block usage:
-    await render(hbs`
-      {{#toolbox-button-aligned-text}}
-        template block text
-      {{/toolbox-button-aligned-text}}
-    `);
+    // this.render(hbs`
+    //   {{#toolbox-button-aligned-text}}
+    //     template content
+    //   {{/toolbox-button-aligned-text}}
+    // `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    this.render(hbs`{{toolbox-button-aligned-text}}`);
+    expect(this.$()).to.have.length(1);
   });
 });

@@ -53,7 +53,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 ### TODOS:
 * Document difference between toolbox-push and toolbox-push-linkto
 * Write examples and/or a tool to configure your component
-* Add ember-mocha and prettier
+* Add prettier
 
 ### NOTES:
 * Right now, a checkbox is singleSelect (although you can force it to be multiSelect but then switching between true and false doesn't work smoothly)

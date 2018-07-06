@@ -1,26 +1,24 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | toolbox-selector-unit', function(hooks) {
-  setupRenderingTest(hooks);
+describe('Integration | Component | toolbox-selector-unit', function() {
+  setupComponentTest('toolbox-selector-unit', {
+    integration: true
+  });
 
-  test('it renders', async function(assert) {
+  it('renders', function() {
     // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{toolbox-selector-unit}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
+    // Handle any actions with this.on('myAction', function(val) { ... });
     // Template block usage:
-    await render(hbs`
-      {{#toolbox-selector-unit}}
-        template block text
-      {{/toolbox-selector-unit}}
-    `);
+    // this.render(hbs`
+    //   {{#toolbox-selector-unit}}
+    //     template content
+    //   {{/toolbox-selector-unit}}
+    // `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    this.render(hbs`{{toolbox-selector-unit}}`);
+    expect(this.$()).to.have.length(1);
   });
 });

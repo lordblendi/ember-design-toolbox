@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/toolbox-selector';
+import { A } from '@ember/array';
 
 export default Component.extend({
   layout,
@@ -7,8 +8,8 @@ export default Component.extend({
   classNameBindings: ["expanded:selector--expanded", "readOnly:selector--readonly", "singleSelect:selector--singleselect:selector--multiselect", "loading:animate-loading", "popupId"],
   expanded: true,
 
-  possibleUnits: Ember.A(),
-  selectedUnits: Ember.A(),
+  possibleUnits: A(),
+  selectedUnits: A(),
 
   selectUnit: function(unit) {
     if(this.get("singleSelect")){
@@ -17,7 +18,7 @@ export default Component.extend({
 
     if(!this.get("selectedUnits").includes(unit))
     {
-      const newSelection = Ember.A();
+      const newSelection = A();
       this.get("selectedUnits").forEach(item => {
         newSelection.pushObject(item);
       });
@@ -33,7 +34,7 @@ export default Component.extend({
     }
     if(this.get("selectedUnits").includes(unit))
     {
-      const newSelection = Ember.A();
+      const newSelection = A();
       this.get("selectedUnits").forEach(item => {
         newSelection.pushObject(item);
       });

@@ -1,5 +1,5 @@
-import Component from '@ember/component';
+import LinkComponent from '@ember/routing/link-component';
 import ButtonBaseMixin from '../mixins/button-base';
 
-export default Ember.LinkComponent.extend( ButtonBaseMixin, {
+export default LinkComponent.extend( ButtonBaseMixin, {
 });

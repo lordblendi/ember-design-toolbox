@@ -1,26 +1,24 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | toolbox-overlay', function(hooks) {
-  setupRenderingTest(hooks);
+describe('Integration | Component | toolbox-overlay', function() {
+  setupComponentTest('toolbox-overlay', {
+    integration: true
+  });
 
-  test('it renders', async function(assert) {
+  it('renders', function() {
     // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{toolbox-overlay}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
+    // Handle any actions with this.on('myAction', function(val) { ... });
     // Template block usage:
-    await render(hbs`
-      {{#toolbox-overlay}}
-        template block text
-      {{/toolbox-overlay}}
-    `);
+    // this.render(hbs`
+    //   {{#toolbox-overlay}}
+    //     template content
+    //   {{/toolbox-overlay}}
+    // `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    this.render(hbs`{{toolbox-overlay}}`);
+    expect(this.$()).to.have.length(1);
   });
 });
