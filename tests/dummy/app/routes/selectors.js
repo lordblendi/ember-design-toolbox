@@ -1,7 +1,7 @@
+import Route from "@ember/routing/route";
 import { htmlSafe } from "@ember/template";
 import { A } from "@ember/array";
 import EmberObject from "@ember/object";
-import Route from "@ember/routing/route";
 
 const colors = {
   green: "#0BDA51",
@@ -251,7 +251,7 @@ export default Route.extend({
           })
         );
       }
-      sections.pushObject(new EmberObject({ subSection: subSections }));
+      sections.pushObject(new EmberObject({ subSections: subSections }));
     }
 
     {
@@ -440,7 +440,7 @@ export default Route.extend({
         );
       }
 
-      sections.pushObject(new EmberObject({ subSection: subSections }));
+      sections.pushObject(new EmberObject({ subSections: subSections }));
     }
 
     return sections;

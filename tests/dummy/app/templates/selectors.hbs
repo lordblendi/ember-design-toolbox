@@ -2,8 +2,8 @@
 
 {{#each sections as |section|}}
   <div class="flex flex-col sm:flex-row m-8 pb-4 border-b-2 border-dashed border-grey-dark overflow-hidden" style={{style}}>
-    {{#each section.subSection as |subSection|}}
-      <div class="sm:w-1/{{section.subSection.length}} p-2 overflow-hidden">
+    {{#each section.subSections as |subSection|}}
+      <div class="sm:w-1/{{section.subSections.length}} p-2 overflow-hidden">
         <h2 class="mb-8">{{subSection.label}}</h2>
 
         {{#each subSection.examples as |example index|}}
