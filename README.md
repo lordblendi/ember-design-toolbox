@@ -58,3 +58,5 @@ This project is licensed under the [MIT License](LICENSE.md).
 ### NOTES:
 * Right now, a checkbox is singleSelect (although you can force it to be multiSelect but then switching between true and false doesn't work smoothly)
 * The non-expanded read-only selectors do not look like the mock-up right now as the mock-up still provides the "expanded" class when non-expanded.
+* The tabs width selector is cheating a bit by sending a "resize" event when changing the width.
+* The tabs animations could use some love regarding their duration

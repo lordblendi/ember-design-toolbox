@@ -1,0 +1,36 @@
+<div class="tabs-nav">
+    <div class="tabs-nav__slide tabs-nav__slide--left {{unless showLeftScroll "tabs-nav__slide--hidden"}}">
+      <span class="tabs-nav__slideShadow" {{action "startScrollLeft" on="mouseEnter"}} {{action "stopScroll" on="mouseLeave"}}></span>
+      <span class="tabs-nav__slideArrow" {{action "scrollLeftOne" on="click"}}>←</span>
+      <span class="tabs-nav__slideCounter">{{leftElements}}</span>
+    </div>
+
+  <ul>
+    {{#each panels as |panel|}}
+      <li class="{{if panel._isSelected "selected"}}">
+        <a href="#" class="tabs-nav__link" tabindex="1" {{action "select" panel}}>{{{panel.title}}}</a>
+        {{#if panel._isSelected}}
+          <span class="tabs-nav__linkBar" style="width: 100%;"></span>
+        {{/if}}
+      </li>
+    {{/each}}
+
+  </ul>
+
+    <div class="tabs-nav__slide tabs-nav__slide--right {{unless showRightScroll "tabs-nav__slide--hidden"}}">
+      <span class="tabs-nav__slideShadow" {{action "startScrollRight" on="mouseEnter"}} {{action "stopScroll" on="mouseLeave"}}></span>
+      <span class="tabs-nav__slideArrow" {{action "scrollRightOne" on="click"}}>→</span>
+      <span class="tabs-nav__slideCounter">{{rightElements}}</span>
+    </div>
+</div>
+
+
+<div class="tabs-panels p-2">
+
+  {{yield
+    (hash
+      panel=(component "toolbox-tabs.tab-panel" register=(action "register") unregister=(action "unregister"))
+    )
+  }}
+
+</div>

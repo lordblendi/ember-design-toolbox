@@ -16,3 +16,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
+
+.tabs-nav ul{
+    overflow-x: hidden;
+}
+
+.tabs-nav__slideShadow {
+    pointer-events: inherit;
+}
+
