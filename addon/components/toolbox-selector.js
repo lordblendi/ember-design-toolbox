@@ -1,6 +1,7 @@
 import Component from "@ember/component";
 import layout from "../templates/components/toolbox-selector";
 import { A } from "@ember/array";
+import { not, filterBy } from "@ember/object/computed";
 
 export default Component.extend({
   layout,
@@ -8,54 +9,55 @@ export default Component.extend({
   classNameBindings: [
     "expanded:selector--expanded",
     "readOnly:selector--readonly",
-    "singleSelect:selector--singleselect:selector--multiselect",
+    "singleSelect:selector--singleselect",
+    "multiSelect:selector--multiselect",
     "loading:animate-loading",
     "popupId"
   ],
   expanded: true,
+  readOnly: false,
+  singleSelect: false,
+  multiSelect: not("singleSelect"),
+  required: false,
+  loading: false,
 
-  possibleUnits: A(),
-  selectedUnits: A(),
-
-  selectUnit: function(unit) {
-    if (this.get("singleSelect")) {
-      return this.updateSelection([unit]);
-    }
-
-    if (!this.get("selectedUnits").includes(unit)) {
-      const newSelection = A();
-      this.get("selectedUnits").forEach(item => {
-        newSelection.pushObject(item);
-      });
-      newSelection.pushObject(unit);
-      return this.updateSelection(newSelection);
-    }
+  init() {
+    this._super(...arguments);
+    this.set("items", A());
   },
-  deselectUnit: function(unit) {
-    if (this.get("required")) {
-      if (
-        this.get("selectedUnits.length") === 1 &&
-        this.get("selectedUnits.firstObject") == unit
-      ) {
-        return;
-      }
-    }
-    if (this.get("selectedUnits").includes(unit)) {
-      const newSelection = A();
-      this.get("selectedUnits").forEach(item => {
-        newSelection.pushObject(item);
-      });
-      newSelection.removeObject(unit);
-      return this.updateSelection(newSelection);
-    }
-  },
+
+  selectedItems: filterBy("items", "isSelected", true),
 
   actions: {
-    selectUnit(unit) {
-      this.selectUnit(unit);
+    selectItem(selected) {
+      if (this.get("singleSelect")) {
+        this.selectedItems.forEach(item => {
+          item.handleUnselect();
+        });
+      }
+      selected.handleSelect();
     },
-    deselectUnit(unit) {
-      this.deselectUnit(unit);
+    unselectItem(unselected) {
+      if (this.get("required")) {
+        if (
+          this.get("selectedItems.length") === 1 &&
+          this.get("selectedItems.firstObject") === unselected
+        ) {
+          return;
+        }
+      }
+      unselected.handleUnselect();
+    },
+
+    registerItem(item) {
+      if (!this.items.includes(item)) {
+        this.items.pushObject(item);
+      }
+    },
+    unregisterItem(item) {
+      if (this.items.includes(item)) {
+        this.items.removeObject(item);
+      }
     }
   }
 });

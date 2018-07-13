@@ -1,4 +1,31 @@
-{{options-toolbar options=options pickTheme=(action "pickTheme") pickLoading=(action "pickLoading")}}
+{{#options-toolbar as |toolbar|}}
+  {{#toolbar.option label="Theme"}}
+    {{#toolbox-selector singleSelect=true required=true as |selector|}}
+      {{#selector.item isSelected=isLightThemeSelected select=(action "pickTheme" "#FFFFFF")}}
+        {{selector.unit field="Light"}}
+      {{/selector.item}}
+
+      {{selector.separator}}
+
+      {{#selector.item isSelected=(not isLightThemeSelected) select=(action "pickTheme" "#000000")}}
+        {{selector.unit field="Dark"}}
+      {{/selector.item}}
+
+    {{/toolbox-selector}}
+  {{/toolbar.option}}
+
+  {{#toolbar.option label="Loading"}}
+    {{#toolbox-selector singleSelect=false as |selector|}}
+      {{#selector.item isSelected=loadingButtons select=(action "setLoading" "loadingButtons" true) unselect=(action "setLoading" "loadingButtons" false)}}
+        {{selector.unit field="Buttons"}}
+      {{/selector.item}}
+
+      {{#selector.item isSelected=loadingPush select=(action "setLoading" "loadingPush" true) unselect=(action "setLoading" "loadingPush" false)}}
+        {{selector.unit field="Push"}}
+      {{/selector.item}}
+    {{/toolbox-selector}}
+  {{/toolbar.option}}
+{{/options-toolbar}}
 
 <div class="flex flex-col sm:flex-row m-8 py-4 min-h-screen border-b-2 border-dashed border-grey-dark overflow-hidden" style={{style}}>
   <div class="sm:w-1/2 p-8 overflow-hidden">

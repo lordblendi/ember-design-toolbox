@@ -1,4 +1,31 @@
-{{options-toolbar options=options pickTheme=(action "pickTheme") pickWidth=(action "pickWidth")}}
+{{#options-toolbar as |toolbar|}}
+  {{#toolbar.option label="Theme"}}
+    {{#toolbox-selector singleSelect=true required=true as |selector|}}
+      {{#selector.item isSelected=(not inverted) select=(action "setInvert" false)}}
+        {{selector.unit field="Normal"}}
+      {{/selector.item}}
+
+      {{selector.separator}}
+
+      {{#selector.item isSelected=inverted select=(action "setInvert" true)}}
+        {{selector.unit field="Inverted"}}
+      {{/selector.item}}
+
+    {{/toolbox-selector}}
+  {{/toolbar.option}}
+
+  {{#toolbar.option label="Width"}}
+    {{#toolbox-selector singleSelect=true as |selector|}}
+      {{#selector.item isSelected=(eq width "1/4") select=(action "pickWidth" "1/4")}}
+        {{selector.unit field="25%"}}
+      {{/selector.item}}
+
+      {{#selector.item isSelected=(eq width "3/4") select=(action "pickWidth" "3/4")}}
+        {{selector.unit field="75%"}}
+      {{/selector.item}}
+    {{/toolbox-selector}}
+  {{/toolbar.option}}
+{{/options-toolbar}}
 
 {{#each sections as |section|}}
   <div class="flex flex-col sm:flex-row m-8 pb-4 border-b-2 border-dashed border-grey-dark overflow-hidden">

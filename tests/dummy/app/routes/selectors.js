@@ -36,7 +36,7 @@ export default Route.extend({
             generateUnit(colors["yellow"], null, null, "Ongoing"),
             generateUnit(colors["red"], null, null, "Finished")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -45,8 +45,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -56,7 +55,7 @@ export default Route.extend({
             generateUnit(colors["yellow"], null, null, "Ongoing"),
             generateUnit(colors["red"], null, null, "Finished")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -66,8 +65,7 @@ export default Route.extend({
               singleSelect: true,
               required: true,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -77,7 +75,7 @@ export default Route.extend({
             generateUnit(colors["yellow"], null, null, "Ongoing"),
             generateUnit(colors["red"], null, null, "Finished")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -86,8 +84,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: true,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -96,7 +93,7 @@ export default Route.extend({
           const possible = A([
             generateUnit(colors["yellow"], null, null, "Ongoing")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -106,8 +103,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -115,7 +111,7 @@ export default Route.extend({
           const possible = A([
             generateUnit(colors["yellow"], null, null, "Ongoing")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -125,8 +121,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: true,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -148,7 +143,8 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "backend-team"),
             generateUnit(colors["yellow"], "", null, "297")
           ]);
-          const selected = A([possible.objectAt(0), possible.objectAt(1)]);
+          possible.objectAt(0).set("selected", true);
+          possible.objectAt(1).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -157,8 +153,7 @@ export default Route.extend({
               singleSelect: false,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -168,7 +163,7 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "backend-team"),
             generateUnit(colors["yellow"], "", null, "297")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -178,8 +173,7 @@ export default Route.extend({
               singleSelect: false,
               required: true,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -189,7 +183,8 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "backend-team"),
             generateUnit(colors["yellow"], "", null, "297")
           ]);
-          const selected = A([possible.objectAt(0), possible.objectAt(1)]);
+          possible.objectAt(0).set("selected", true);
+          possible.objectAt(1).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -198,8 +193,7 @@ export default Route.extend({
               singleSelect: false,
               required: false,
               readOnly: true,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -209,7 +203,8 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "backend-team"),
             generateUnit(colors["yellow"], "", null, "297")
           ]);
-          const selected = A([possible.objectAt(0), possible.objectAt(1)]);
+          possible.objectAt(0).set("selected", true);
+          possible.objectAt(1).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -218,8 +213,7 @@ export default Route.extend({
               singleSelect: false,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -229,7 +223,8 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "backend-team"),
             generateUnit(colors["yellow"], "", null, "297")
           ]);
-          const selected = A([possible.objectAt(0), possible.objectAt(1)]);
+          possible.objectAt(0).set("selected", true);
+          possible.objectAt(1).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -238,8 +233,7 @@ export default Route.extend({
               singleSelect: false,
               required: false,
               readOnly: true,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -266,7 +260,7 @@ export default Route.extend({
             generateUnit(null, "", null, null),
             generateUnit(null, "", null, null)
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -275,8 +269,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -286,7 +279,7 @@ export default Route.extend({
             generateUnit(colors["yellow"], "Medium", null, null),
             generateUnit(colors["red"], "High", null, null)
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -295,8 +288,7 @@ export default Route.extend({
               singleSelect: true,
               required: true,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -306,7 +298,7 @@ export default Route.extend({
             generateUnit(colors["yellow"], null, null, "Ongoing"),
             generateUnit(colors["red"], null, null, "Finished")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -315,8 +307,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -327,7 +318,7 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "Ongoing"),
             generateUnit(colors["green"], "", null, "Finished")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -336,8 +327,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -348,7 +338,7 @@ export default Route.extend({
             generateUnit(colors["blue"], "", null, "backend"),
             generateUnit(colors["yellow"], "", null, "297")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -357,8 +347,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -369,7 +358,7 @@ export default Route.extend({
             generateUnit(colors["red"], "", null, "Brandbaar"),
             generateUnit(colors["red"], "", null, "Huidopname")
           ]);
-          const selected = A([possible.objectAt(0)]);
+          possible.objectAt(0).set("selected", true);
           examples.pushObject(
             new EmberObject({
               type: "selector",
@@ -378,8 +367,7 @@ export default Route.extend({
               singleSelect: true,
               required: false,
               readOnly: false,
-              possible,
-              selected
+              possible
             })
           );
         }
@@ -412,9 +400,11 @@ export default Route.extend({
               type: "checkbox",
               label: "CHECKBOX",
               expanded: true,
+              singleSelect: true,
               required: false,
               readOnly: false,
-              checked: null
+              checked: null,
+              unchecked: null
             })
           );
         }
@@ -423,11 +413,27 @@ export default Route.extend({
             new EmberObject({
               type: "checkbox",
               label: "CHECKBOX - COLORED ",
+              singleSelect: true,
               expanded: true,
               required: false,
               readOnly: false,
               checked: null,
+              unchecked: null,
               truePrefixColor: colors["green"]
+            })
+          );
+        }
+        {
+          examples.pushObject(
+            new EmberObject({
+              type: "checkbox",
+              label: "CHECKBOX (FILTER IN HEADER)",
+              singleSelect: false,
+              expanded: true,
+              required: false,
+              readOnly: false,
+              checked: null,
+              unchecked: null
             })
           );
         }

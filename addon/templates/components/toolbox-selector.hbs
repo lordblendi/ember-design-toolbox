@@ -1,8 +1,7 @@
-{{#each possibleUnits as |unit index|}}
-  {{#if (not-eq index 0)}}
-    <div class="selector__itemSeperator"></div>
-  {{/if}}
-
-  {{toolbox-selector-unit unit=unit selected=(contains unit selectedUnits) selectUnit=(action "selectUnit") deselectUnit=(action "deselectUnit")}}
-
-{{/each}}
+{{yield
+  (hash
+    item=(component "toolbox-selector/selector-item" willSelect=(action "selectItem") willUnselect=(action "unselectItem") register=(action "registerItem") unregister=(action "unregisterItem")  )
+    unit=(component "toolbox-selector/selector-unit")
+    separator=(component "toolbox-selector/selector-separator")
+  )
+}}
