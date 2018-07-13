@@ -125,6 +125,9 @@ export default Component.extend({
 
   // Scroll to the currently selected header
   scrollToSelected(callback) {
+    if (this.get("isDestroyed")) {
+      return;
+    }
     let list = this.$("ul").children("li");
     if (list[0]) {
       this.scrollToElement(
@@ -142,6 +145,9 @@ export default Component.extend({
 
   // Scroll to element with a defined offset and a duration
   scrollToElement(element, offset = 0, duration = 1000) {
+    if (this.get("isDestroyed")) {
+      return;
+    }
     if (element) {
       this.stopScroll();
       this.set("lastAnimated", element);
@@ -210,11 +216,17 @@ export default Component.extend({
 
   // If we scrolled on the right, we can scroll to the left.
   calculateShowLeftScroll: function() {
+    if (this.get("isDestroyed")) {
+      return;
+    }
     return this.set("showLeftScroll", Math.ceil(this.$("ul").scrollLeft()) > 0);
   },
 
   // If the sum of the distance scrolled and the size of the list element is smaller than the total size, we can still scroll right.
   calculateShowRightScroll: function() {
+    if (this.get("isDestroyed")) {
+      return;
+    }
     return this.set(
       "showRightScroll",
       Math.ceil(this.$("ul").scrollLeft() + this.$("ul").outerWidth()) <
@@ -224,6 +236,9 @@ export default Component.extend({
 
   // To find how many elements are on the left, we calculate the leftmost entirely visible element and count how many are before it.
   calculateLeftElements: function() {
+    if (this.get("isDestroyed")) {
+      return;
+    }
     const child = this.findChildAtOffset(this.$("ul").scrollLeft());
 
     if (child.element) {
@@ -233,6 +248,9 @@ export default Component.extend({
 
   // To find how many elements are on the right, we calculate the rightmost entirely visible element and count how many are after it.
   calculateRightElements: function() {
+    if (this.get("isDestroyed")) {
+      return;
+    }
     const child = this.findChildAtOffset(
       this.$("ul").scrollLeft() + this.$("ul").outerWidth() + 1
     );
