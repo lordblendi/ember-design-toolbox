@@ -1,4 +1,3 @@
-<h3 class="mb-8">Popups and overlays</h3>
 <div class="flex flex-col sm:flex-row m-8 py-4 min-h-screen border-b-2 border-dashed border-grey-dark overflow-hidden">
 
   <div class="sm:w-3/5 p-4 overflow-hidden inline-block">
@@ -47,9 +46,22 @@
       <h5>Example</h5>
       {{toolbox-button class="m-2" type="naked" title="Show normal overlay" clicked=(action "showOverlay" null)}}
       {{toolbox-button class="m-2" type="go" title="Show tooltip overlay" clicked=(action "showOverlay" "tooltip")}}
-      {{! TODO: Implement input and show example text overlay }}
-      {{!toolbox-button class="m-5" type="go" title="Show text overlay" clicked=(action "showOverlay" "text")}}
       {{toolbox-button class="m-2" type="drop" title="Show error overlay" clicked=(action "showOverlay" "error")}}
+
+      {{#toolbox-field as |field|}}
+        {{#field.label}}Value{{/field.label}}
+
+        {{#field.data as |data|}}
+
+          {{#data.value as |value|}}
+            {{value.input value=textValue}}
+          {{/data.value}}
+        {{/field.data}}
+
+        {{#field.note}}
+          Focus this input to make a "text" overlay appear.
+        {{/field.note}}
+      {{/toolbox-field}}
     </div>
 
   </div>

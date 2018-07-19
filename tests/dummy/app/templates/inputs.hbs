@@ -1,1 +1,48 @@
-{{outlet}}
+<div class="flex flex-col sm:flex-row m-8 py-4 min-h-screen border-b-2 border-dashed border-grey-dark overflow-hidden">
+
+  <div class="sm:w-5/5 p-4 overflow-hidden inline-block">
+    <h4>Fields</h4>
+
+    {{#toolbox-field showError=(eq textValue "error") as |field|}}
+      {{#field.label}}Label{{/field.label}}
+
+      {{#field.data as |data|}}
+        {{#data.error as |error|}}
+          {{#error.trigger}}
+            {{{trigger}}}
+          {{/error.trigger}}
+          {{#error.content}}
+            {{{content}}}
+          {{/error.content}}
+        {{/data.error}}
+        {{#data.value as |value|}}
+          {{value.input value=textValue}}
+        {{/data.value}}
+      {{/field.data}}
+
+      {{#field.note}}
+        To display the error container, please enter "error" as an input value.
+      {{/field.note}}
+    {{/toolbox-field}}
+
+
+    <div class="configuration">
+      <h5>Configuration</h5>
+
+      <div>
+        <label>
+          Trigger
+        </label>
+        {{textarea value=newTrigger}}
+        <button {{action (mut trigger) newTrigger}}>Submit</button>
+      </div>
+
+      <div>
+        <label>Content</label>
+        {{textarea value=newContent}}
+        <button {{action (mut content) newContent}}>Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>

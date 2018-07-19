@@ -1,0 +1,14 @@
+{{#if useModal}}
+  {{#toolbox-modal overlayType=overlayType as |modal|}}
+    {{yield
+    (
+    hash
+    trigger=(component modal.trigger)
+    content=(component modal.content)
+    )
+    }}
+  {{/toolbox-modal}}
+{{else}}
+  {{yield}}
+{{/if}}
+
