@@ -5,6 +5,14 @@ import ButtonBaseMixin from "../mixins/button-base";
 const toolboxPushComponent = Component.extend(ButtonBaseMixin, {
   layout,
   tagName: "a",
+  classNames: ["toolbox-push"],
+  classNameBindings: [
+    "go:toolbox-push--go",
+    "drop:toolbox-push--drop",
+    "naked:toolbox-push--naked",
+    "capitalized:toolbox-push--small-caps",
+    "loading:animate-loading"
+  ],
   attributeBindings: ["href", "target"],
   usePositionalParams: false,
 
