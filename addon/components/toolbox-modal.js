@@ -5,7 +5,7 @@ import layout from "../templates/components/toolbox-modal";
 
 export default Component.extend({
   layout,
-  tagName: "div",
+  tagName: "",
   toolboxOverlayBody: service(),
 
   showModal: false,
@@ -18,10 +18,8 @@ export default Component.extend({
     }
   }),
 
-  clickedTriggerElement: computed(function() {
-    // We set the default selected trigger as the first one, though it should be overridden by user interaction.
-    return this.$(".trigger").first();
-  }),
+  // Will be set by clicked triggers or will be overridden in modal-container by component consumer
+  clickedTriggerElement: null,
 
   // Can be overridden to change behavior
   clickedTrigger() {
