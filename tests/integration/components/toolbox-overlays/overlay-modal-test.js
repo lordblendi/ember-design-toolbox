@@ -3,8 +3,8 @@ import { describe, it } from "mocha";
 import { setupComponentTest } from "ember-mocha";
 import hbs from "htmlbars-inline-precompile";
 
-describe("Integration | Component | toolbox-overlay", function() {
-  setupComponentTest("toolbox-overlay", {
+describe("Integration | Component | toolbox-overlays/overlay-modal", function() {
+  setupComponentTest("toolbox-overlays/overlay-modal", {
     integration: true
   });
 
@@ -13,12 +13,12 @@ describe("Integration | Component | toolbox-overlay", function() {
     // Handle any actions with this.on('myAction', function(val) { ... });
     // Template block usage:
     // this.render(hbs`
-    //   {{#toolbox-overlay}}
+    //   {{#toolbox-overlays/overlay-modal}}
     //     template content
-    //   {{/toolbox-overlay}}
+    //   {{/toolbox-overlays/overlay-modal}}
     // `);
 
-    this.render(hbs`{{toolbox-overlay}}`);
+    this.render(hbs`{{toolbox-overlays/overlay-modal}}`);
     expect(this.$()).to.have.length(1);
   });
 });

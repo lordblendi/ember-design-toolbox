@@ -1,0 +1,7 @@
+{{#if showModal}}
+  {{#-in-element destination}}
+    {{#toolbox-modal/modal-container showModal=showModal target=target clickedOutside=(action "clickedOutside")}}
+      {{yield}}
+    {{/toolbox-modal/modal-container}}
+  {{/-in-element}}
+{{/if}}

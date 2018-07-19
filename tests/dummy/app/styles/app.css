@@ -15,6 +15,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    background-color: white;
 }
 
 .tabs-nav ul{
@@ -25,3 +26,14 @@ body {
     pointer-events: inherit;
 }
 
+.overlay-body {
+    display: block !important;
+}
+
+.modal {
+    background-color: white;
+}
+
+.trigger {
+    display: inline-block;
+}

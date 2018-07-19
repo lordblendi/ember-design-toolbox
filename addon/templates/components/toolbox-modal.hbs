@@ -1,0 +1,7 @@
+{{yield
+(
+hash
+trigger=(component "toolbox-modal/modal-trigger" clicked=(action "handleClickedTrigger"))
+content=(component "toolbox-modal/modal-content" target=clickedTriggerElement showModal=showModal clickedOutside=(action "handleClickedOutside"))
+)
+}}
