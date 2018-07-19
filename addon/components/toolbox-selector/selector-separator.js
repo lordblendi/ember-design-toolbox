@@ -4,5 +4,5 @@ import layout from "../../templates/components/toolbox-selector/selector-separat
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: ["selector__itemSeperator"]
+  classNames: ["toolbox-selector__itemSeparator"]
 });

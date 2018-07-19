@@ -6,7 +6,7 @@ import { htmlSafe } from "@ember/template";
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: ["selector__block"],
+  classNames: ["toolbox-selector__block"],
 
   escapedStyle: computed("color", function() {
     if (/^#[a-zA-Z0-9]{6}$/.test(this.get("color")))

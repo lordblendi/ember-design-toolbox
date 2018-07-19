@@ -1,11 +1,18 @@
+import { and } from "@ember/object/computed";
 import Component from "@ember/component";
 import layout from "../../templates/components/toolbox-selector/selector-item";
 
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: ["selector__item"],
-  classNameBindings: ["isSelected:selector__item--selected"],
+  classNames: ["toolbox-selector__item"],
+  classNameBindings: [
+    "isSelected:toolbox-selector__item--selected",
+    "isRequired:toolbox-selector__item--required"
+  ],
+
+  // The CSS rules will prevent this item from being unselected.
+  isRequired: and("required", "isSelected"),
 
   click() {
     if (this.get("isSelected") && this.willUnselect) {
