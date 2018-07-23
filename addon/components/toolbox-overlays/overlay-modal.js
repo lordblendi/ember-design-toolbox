@@ -3,5 +3,5 @@ import layout from "../../templates/components/toolbox-overlays/overlay-modal";
 
 export default Component.extend({
   layout,
-  classNames: ["overlay-modal"]
+  classNames: ["toolbox-overlay--modal"]
 });

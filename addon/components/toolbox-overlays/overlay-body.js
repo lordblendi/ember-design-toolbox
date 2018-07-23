@@ -7,12 +7,12 @@ import { computed } from "@ember/object";
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: "overlay-body",
+  classNames: "toolbox-overlay",
   classNameBindings: [
-    "isVisible:overlay-body--visible",
-    "error:overlay-body--error",
-    "tooltip:overlay-body--tooltip",
-    "text:overlay-body--text"
+    "isVisible:toolbox-overlay--visible",
+    "error:toolbox-overlay--error",
+    "tooltip:toolbox-overlay--tooltip",
+    "text:toolbox-overlay--text"
   ],
 
   type: null,
