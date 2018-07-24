@@ -3,5 +3,5 @@ import layout from "../../templates/components/toolbox-field/field-note";
 
 export default Component.extend({
   layout,
-  classNames: ["note"]
+  classNames: ["toolbox-note"]
 });

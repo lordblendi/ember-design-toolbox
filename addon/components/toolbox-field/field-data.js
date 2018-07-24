@@ -3,5 +3,5 @@ import layout from "../../templates/components/toolbox-field/field-data";
 
 export default Component.extend({
   layout,
-  classNames: ["field__data"]
+  classNames: ["toolbox-field__data"]
 });

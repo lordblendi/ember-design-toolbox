@@ -3,7 +3,7 @@ import layout from "../../templates/components/toolbox-modal/modal-trigger";
 
 export default Component.extend({
   layout,
-  classNames: ["trigger"],
+  classNames: ["toolbox-modal__trigger"],
 
   click() {
     if (this.clicked) {

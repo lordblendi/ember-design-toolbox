@@ -4,8 +4,8 @@ import layout from "../../templates/components/toolbox-tabs/tab-panel";
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: ["tabs-panels__panel"],
-  classNameBindings: ["_isSelected:tabs-panels__panel--active"],
+  classNames: ["toolbox-tabs-panels__panel"],
+  classNameBindings: ["_isSelected:toolbox-tabs-panels__panel--active"],
 
   title: null,
 

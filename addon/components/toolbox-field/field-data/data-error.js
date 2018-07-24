@@ -3,7 +3,7 @@ import layout from "../../../templates/components/toolbox-field/field-data/data-
 
 export default Component.extend({
   layout,
-  classNames: ["field__error"],
+  classNames: ["toolbox-field__error"],
 
   overlayType: "error",
   useModal: true

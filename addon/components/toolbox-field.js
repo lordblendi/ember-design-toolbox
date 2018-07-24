@@ -3,11 +3,11 @@ import layout from "../templates/components/toolbox-field";
 
 export default Component.extend({
   layout,
-  classNames: ["field"],
+  classNames: ["toolbox-field"],
   classNameBindings: [
-    "showError:field--error",
-    "empty::field--not-empty",
-    "focus:field--focus"
+    "showError:toolbox-field--error",
+    "empty::toolbox-field--not-empty",
+    "focus:toolbox-field--focus"
   ],
 
   showError: false,

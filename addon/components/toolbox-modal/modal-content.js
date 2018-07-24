@@ -10,7 +10,7 @@ export default Component.extend({
 
   isVisible: false,
   destination: computed(function() {
-    const dest = $(".overlay-modal")[0];
+    const dest = $(".toolbox-overlay--modal")[0];
     assert(
       "The modal overlay could not be found, please ensure you provided one.",
       !!dest

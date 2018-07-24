@@ -6,8 +6,8 @@ import { debounce, throttle, later } from "@ember/runloop";
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: ["tabs"],
-  classNameBindings: ["inverted:tabs--invert"],
+  classNames: ["toolbox-tabs"],
+  classNameBindings: ["inverted:toolbox-tabs--invert"],
   inverted: false,
 
   // Unselect the previous child and select the new one.

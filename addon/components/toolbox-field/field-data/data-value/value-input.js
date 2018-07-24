@@ -5,7 +5,7 @@ import { inject as service } from "@ember/service";
 import TextField from "@ember/component/text-field";
 
 export default TextField.extend({
-  classNames: ["field__input"],
+  classNames: ["toolbox-field__input"],
 
   toolboxOverlayBody: service(),
 
