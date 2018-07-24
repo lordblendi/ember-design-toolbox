@@ -14,65 +14,11 @@ export default Component.extend(RegisterableComponent, {
   classNames: ["toolbox-table"],
   classNameBindings: ["isSubList:toolbox-table--sublist"],
 
-  animationDuration: 500,
+  // Whether the table is actually a subList
   isSubList: false,
+
+  // Collapsed or expanded
   isExpanded: true,
-
-  rowsTables: computed("rows.@each.table", function() {
-    return this.get("rows").map(row => {
-      return row.get("table");
-    });
-  }),
-
-  anyRowExpanded: false,
-
-  checkAnyRowExpanded: on(
-    "init",
-    observer("rows.@each.isExpanded", function() {
-      scheduleOnce("afterRender", () => {
-        this.set(
-          "anyRowExpanded",
-          this.get("rows").some(row => {
-            if (row) {
-              return row.get("isExpanded");
-            }
-          })
-        );
-      });
-    })
-  ),
-
-  didInsertElement() {
-    this.handleIsExpandedChanged(0);
-  },
-
-  handleIsExpandedChanged(duration) {
-    this.$().velocity("finish");
-    if (this.get("isExpanded")) {
-      $.Velocity.animate(this.$(), "slideDown", {
-        duration
-      });
-    } else {
-      $.Velocity.animate(this.$(), "slideUp", {
-        duration
-      });
-    }
-  },
-
-  isExpandedDidChange: observer("isExpanded", function() {
-    scheduleOnce(
-      "afterRender",
-      this,
-      this.handleIsExpandedChanged,
-      this.get("animationDuration")
-    );
-  }),
-  init() {
-    this.set("header", null);
-    this.set("headerRow", null);
-    this.set("rows", A());
-    this._super(...arguments);
-  },
 
   collapseAllRows() {
     this.get("rows").forEach(row => {
@@ -86,7 +32,76 @@ export default Component.extend(RegisterableComponent, {
     });
   },
 
+  init() {
+    this.set("header", null);
+    this.set("headerRow", null);
+    this.set("rows", A());
+    this.set("footerRow", null);
+    this._super(...arguments);
+  },
+
+  // ----------------------------
+  // Animations
+
+  // We need to force the initial state once attributes have been set
+  didInsertElement() {
+    this.handleIsExpandedChanged(0);
+  },
+
+  // Duration of animations, can be overridden by consumer
+  animationDuration: 500,
+
+  // Whenever "isExpanded" changes, we need to slideUp/Down the component.
+  isExpandedDidChange: observer("isExpanded", function() {
+    scheduleOnce(
+      "afterRender",
+      this,
+      this.handleIsExpandedChanged,
+      this.get("animationDuration")
+    );
+  }),
+
+  // Animate the component given a duration
+  handleIsExpandedChanged(duration) {
+    this.$().velocity("finish");
+    if (this.get("isExpanded")) {
+      $.Velocity.animate(this.$(), "slideDown", {
+        duration
+      });
+    } else {
+      $.Velocity.animate(this.$(), "slideUp", {
+        duration
+      });
+    }
+  },
+  // ----------------------------
+
+  // ----------------------------
+  // AnyRowsExpanded calculation
+
+  // Whether any child row of this table is expanded.
+  // This is used by the header row to show the proper icon to collapse / expand all.
+  anyRowExpanded: false,
+  calculateAnyRowsExpanded() {
+    this.set(
+      "anyRowExpanded",
+      this.get("rows").some(row => {
+        if (row) {
+          return row.get("table") && row.get("isExpanded");
+        }
+      })
+    );
+  },
+  checkAnyRowExpanded: on(
+    "init",
+    observer("rows.@each.isExpanded", "rows.@each.table", function() {
+      scheduleOnce("afterRender", this, this.calculateAnyRowsExpanded);
+    })
+  ),
+  // ----------------------------
+
   actions: {
+    // Triggered when a header row expander is clicked
     toggleRowsIsExpanded() {
       if (this.get("anyRowExpanded")) {
         // Collapse everything
@@ -100,6 +115,9 @@ export default Component.extend(RegisterableComponent, {
         }
       }
     },
+
+    // ----------------------------
+    // Registration of children
     registerHeader(header) {
       assert(
         "You assigned more than one header to the same toolbox-table.",
@@ -132,6 +150,18 @@ export default Component.extend(RegisterableComponent, {
       } else {
         this.get("rows").removeObject(row);
       }
+    },
+    registerFooterRow(footerRow) {
+      // There should only be one footer row in the table.
+      assert(
+        "You assigned more than one footer row to the same toolbox-table.",
+        this.get("footerRow") === null
+      );
+      this.set("footerRow", footerRow);
+    },
+    unregisterFooterRow(footerRow) {
+      this.set("footerRow", null);
     }
+    // ----------------------------
   }
 });

@@ -1,0 +1,9 @@
+{{yield
+(hash
+header=(component "toolbox-table/table-header" register=(action "registerHeader") unregister=(action "unregisterHeader"))
+row=(component "toolbox-table/table-row" register=(action "registerRow") unregister=(action "unregisterRow"))
+headerRow=(component "toolbox-table/table-header-row" isExpanded=anyRowExpanded toggleIsExpanded=(action "toggleRowsIsExpanded") register=(action "registerHeaderRow") unregister=(action "unregisterHeaderRow"))
+footerRow=(component "toolbox-table/table-footer-row" register=(action "registerFooterRow") unregister=(action "unregisterFooterRow"))
+isExpanded=isExpanded
+)
+}}

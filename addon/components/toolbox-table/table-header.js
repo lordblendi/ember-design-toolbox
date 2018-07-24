@@ -15,6 +15,8 @@ export default Component.extend(RegisterableComponent, {
   },
 
   actions: {
+    // ----------------------------
+    // Registration of children
     registerTitle(title) {
       assert(
         "You assigned more than one title to the same toolbox-table/table-header.",
@@ -35,5 +37,6 @@ export default Component.extend(RegisterableComponent, {
     unregisterActions(actions) {
       this.set("actionsBlock", null);
     }
+    // ----------------------------
   }
 });

@@ -11,9 +11,9 @@ Router.map(function() {
   this.route("comments");
   this.route("selectors");
   this.route("inputs");
-  this.route("itembox");
   this.route("popups");
   this.route("tabs");
+  this.route("tables");
 });
 
 export default Router;

@@ -1,0 +1,10 @@
+{{yield
+(
+hash
+content=(component "toolbox-table/table-row/row-content" register=(action "registerContent") unregister=(action "unregisterContent"))
+table=(component "toolbox-table" isExpanded=isExpanded register=(action "registerTable") unregister=(action "unregisterTable"))
+list=(component "toolbox-table" isExpanded=false isSubList=true register=(action "registerList") unregister=(action "unregisterList"))
+expander=(component "toolbox-table/table-row/row-expander" isExpanded=isExpanded clicked=(action "handleToggleIsExpanded" table) register=(action "registerExpander") unregister=(action "unregisterExpander"))
+trigger=(component "toolbox-table/table-row/row-trigger" clicked=(action "handleTriggerClicked"))
+)
+}}

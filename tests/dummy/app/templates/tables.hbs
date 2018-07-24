@@ -1,0 +1,220 @@
+{{outlet}}
+
+{{#toolbox-table as |table|}}
+  {{#table.header as |header|}}
+    {{#header.title}}
+      <h2>table section header above toolbox-table</h2>
+    {{/header.title}}
+
+    {{#header.actions as |actions|}}
+      {{#actions.block}}
+        
+      {{/actions.block}}
+      {{#actions.block}}
+        
+      {{/actions.block}}
+    {{/header.actions}}
+  {{/table.header}}
+
+  {{#table.headerRow as |row|}}
+    {{#row.content  as |content|}}
+
+      {{#content.cell as |cell|}}
+        {{row.expander}}
+      {{/content.cell}}
+
+      {{#content.cell as |cell|}}
+        Header row
+      {{/content.cell}}
+
+    {{/row.content}}
+
+  {{/table.headerRow}}
+
+
+  {{#table.row as |row|}}
+    {{#row.content as |content|}}
+
+      {{#content.cell as |cell|}}
+        {{row.expander}}
+      {{/content.cell}}
+
+      {{#content.cell as |cell|}}
+        Row 1
+      {{/content.cell}}
+
+    {{/row.content}}
+
+    {{#row.table as |subTable|}}
+      {{#subTable.header as |header|}}
+        {{#header.title}}
+          <h3>Inner table</h3>
+        {{/header.title}}
+        {{#header.actions as |actions|}}
+          {{#actions.block}}
+            Press me
+          {{/actions.block}}
+        {{/header.actions}}
+      {{/subTable.header}}
+
+      {{#subTable.headerRow as |headerRow|}}
+        {{#headerRow.content as |content|}}
+          {{#content.cell}}
+            {{headerRow.expander}}
+          {{/content.cell}}
+        {{/headerRow.content}}
+      {{/subTable.headerRow}}
+
+      {{#subTable.row as |subRow|}}
+
+        {{#subRow.content as |content|}}
+          {{#content.cell as |cell|}}
+            {{subRow.expander}}
+          {{/content.cell}}
+          {{#content.cell as |cell|}}
+            Row 1 - 1
+          {{/content.cell}}
+        {{/subRow.content}}
+
+        {{#subRow.table as |table|}}
+          {{#table.row as |row|}}
+            {{#row.content as |content|}}
+              {{#content.cell}}
+                Row 1 - 1 - 1
+              {{/content.cell}}
+            {{/row.content}}
+          {{/table.row}}
+        {{/subRow.table}}
+
+      {{/subTable.row}}
+    {{/row.table}}
+
+  {{/table.row}}
+
+
+  {{#table.row as |row|}}
+    {{#row.content as |content|}}
+
+      {{#content.cell as |cell|}}
+        {{row.expander}}
+      {{/content.cell}}
+
+      {{#content.cell as |cell|}}
+        Row 2
+      {{/content.cell}}
+
+      {{#content.cell as |cell|}}
+        {{#row.trigger list="subList1"}}
+          Show sublist 1
+        {{/row.trigger}}
+      {{/content.cell}}
+
+      {{#content.cell as |cell|}}
+        {{#row.trigger list="subList2"}}
+          Show sublist 2
+        {{/row.trigger}}
+      {{/content.cell}}
+    {{/row.content}}
+
+
+    {{#row.list identifier="subList1"  as |list|}}
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList1 - 1
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList1 - 2
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList1 - 3
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+    {{/row.list}}
+
+    {{#row.list identifier="subList2"  as |list|}}
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList2 - 1
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList2 - 2
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList2 - 3
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList2 - 4
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+
+      {{#list.row as |row|}}
+        {{#row.content as |content|}}
+          {{#content.cell as |cell|}}
+            SubList2 - 5
+          {{/content.cell}}
+        {{/row.content}}
+      {{/list.row}}
+    {{/row.list}}
+
+    {{#row.table as |subTable|}}
+      {{#subTable.row as |subRow|}}
+
+        {{#subRow.content as |content|}}
+          {{#content.cell as |cell|}}
+            Row 2 - 1
+          {{/content.cell}}
+        {{/subRow.content}}
+
+      {{/subTable.row}}
+    {{/row.table}}
+
+  {{/table.row}}
+
+  {{#table.footerRow as |row|}}
+    {{#row.content  as |content|}}
+
+      {{#content.cell as |cell|}}
+        Load more items
+      {{/content.cell}}
+
+      {{#content.cell as |cell|}}
+        One more for the road
+      {{/content.cell}}
+
+    {{/row.content}}
+
+  {{/table.footerRow}}
+
+
+
+{{/toolbox-table}}

@@ -12,22 +12,15 @@ export default Component.extend(RegisterableComponent, {
   tagName: "div",
   classNames: ["toolbox-table__row"],
 
-  init() {
-    this.set("content", null);
-    this.set("lists", A());
-    this.set("table", null);
-    this.set("expander", null);
-    this._super(...arguments);
-  },
-
-  isHeader: false,
+  // Collapsed or expanded
   isExpanded: true,
 
-  toggleIsExpanded(table) {
-    if (table && table.toggleProperty) {
-      table.toggleProperty("isExpanded");
-    }
+  // Expands / Collapses the row's table
+  toggleIsExpanded() {
+    this.toggleProperty("isExpanded");
   },
+
+  // Expands / Collapses one of the row's lists
   triggerClicked(trigger) {
     this.get("lists").forEach(list => {
       if (list.get("identifier") === trigger.get("list")) {
@@ -38,17 +31,30 @@ export default Component.extend(RegisterableComponent, {
     });
   },
 
+  init() {
+    this.set("content", null);
+    this.set("lists", A());
+    this.set("table", null);
+    this.set("expander", null);
+    this._super(...arguments);
+  },
+
   actions: {
-    handleToggleIsExpanded(table) {
+    // Triggered when the expander is clicked
+    handleToggleIsExpanded() {
       if (this.toggleIsExpanded) {
-        this.toggleIsExpanded(table);
+        this.toggleIsExpanded();
       }
     },
+    // Triggered when a list trigger is clicked
     handleTriggerClicked(trigger) {
       if (this.triggerClicked) {
         this.triggerClicked(trigger);
       }
     },
+
+    // ----------------------------
+    // Registration of children
     registerContent(content) {
       assert(
         "You assigned more than one content to the same toolbox-table/table-row.",
@@ -89,5 +95,6 @@ export default Component.extend(RegisterableComponent, {
     unregisterExpander(expander) {
       this.set("expander", null);
     }
+    // ----------------------------
   }
 });
