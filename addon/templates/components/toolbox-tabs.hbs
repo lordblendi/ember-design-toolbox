@@ -8,7 +8,7 @@
   <ul>
     {{#each panels as |panel|}}
       <li class="{{if panel._isSelected "selected"}}">
-        <a href="#" class="toolbox-tabs-nav__link" tabindex="1" {{action "select" panel}}>{{{panel.title}}}</a>
+        <a href="#" class="toolbox-tabs-nav__link {{if panel._isSelected "toolbox-tabs-nav__link--active"}}" tabindex="1" {{action "select" panel}}>{{{panel.title}}}</a>
         {{#if panel._isSelected}}
           <span class="toolbox-tabs-nav__linkBar" style="width: 100%;"></span>
         {{/if}}
