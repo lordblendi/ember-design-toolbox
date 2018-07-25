@@ -7,11 +7,8 @@
     pointer-events: inherit;
 }
 
-.modal {
+.white {
     background-color: white;
-    z-index: 41;
-    padding: 5px;
-    min-width: 300px;
 }
 
 /* This is to force the trigger element to resize to its children size */

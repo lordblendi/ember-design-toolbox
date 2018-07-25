@@ -6,7 +6,7 @@ import layout from "../../templates/components/toolbox-modal/modal-container";
 
 export default Component.extend({
   layout,
-  classNames: ["modal", "modal--visible", "animate-fadein"],
+  classNames: ["toolbox-modal", "toolbox-modal--visible", "animate-fadein"],
   toolboxOverlayBody: service(),
 
   verticalOffset: -20,
