@@ -27,7 +27,7 @@ export default TextField.extend({
   focusIn() {
     this.set("focus", true);
     this.get("toolboxOverlayBody").show(
-      this.get("tooltboxOverlayBody.types.text")
+      this.get("toolboxOverlayBody.types.text")
     );
   },
   focusOut() {
